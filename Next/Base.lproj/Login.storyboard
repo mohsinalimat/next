@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3w-YD-VG6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-BoldItalic</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="mau-aP-AkI">
+            <objects>
+                <viewController id="f3w-YD-VG6" customClass="LoginViewController" customModule="Next" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ka7-Fb-6tF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0B-0c-JMg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMA-47-OSA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="432.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-2H-Oww">
+                                                <rect key="frame" x="94" y="64" width="187.5" height="101.5"/>
+                                                <color key="tintColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="85"/>
+                                                <color key="textColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNS-4e-dLr">
+                                                <rect key="frame" x="24" y="229.5" width="327" height="40"/>
+                                                <color key="tintColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="TqC-r2-a0E"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKg-dZ-JIM">
+                                                <rect key="frame" x="24" y="279.5" width="327" height="40"/>
+                                                <color key="tintColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-Lg-WVd">
+                                                <rect key="frame" x="164.5" y="335.5" width="46" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="tintColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginTapped:" destination="f3w-YD-VG6" eventType="touchUpInside" id="0gm-cj-zkY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="CKg-dZ-JIM" firstAttribute="trailing" secondItem="nNS-4e-dLr" secondAttribute="trailing" id="2g0-Vv-U5N"/>
+                                            <constraint firstItem="9wO-Lg-WVd" firstAttribute="top" secondItem="CKg-dZ-JIM" secondAttribute="bottom" constant="16" id="4zK-uO-evG"/>
+                                            <constraint firstItem="9wO-Lg-WVd" firstAttribute="centerX" secondItem="CKg-dZ-JIM" secondAttribute="centerX" id="B48-N2-Lyx"/>
+                                            <constraint firstItem="GNv-2H-Oww" firstAttribute="centerX" secondItem="JMA-47-OSA" secondAttribute="centerX" id="G91-Zq-VTl"/>
+                                            <constraint firstItem="nNS-4e-dLr" firstAttribute="top" secondItem="GNv-2H-Oww" secondAttribute="bottom" constant="64" id="Pus-DU-PMm"/>
+                                            <constraint firstAttribute="bottom" secondItem="9wO-Lg-WVd" secondAttribute="bottom" constant="64" id="WZd-4G-xJL"/>
+                                            <constraint firstItem="CKg-dZ-JIM" firstAttribute="height" secondItem="nNS-4e-dLr" secondAttribute="height" id="ZKe-r2-vCw"/>
+                                            <constraint firstItem="CKg-dZ-JIM" firstAttribute="leading" secondItem="nNS-4e-dLr" secondAttribute="leading" id="bYB-be-qDr"/>
+                                            <constraint firstAttribute="trailing" secondItem="nNS-4e-dLr" secondAttribute="trailing" constant="24" id="byX-qs-vqm"/>
+                                            <constraint firstItem="GNv-2H-Oww" firstAttribute="top" secondItem="JMA-47-OSA" secondAttribute="top" constant="64" id="d9j-fT-hyF"/>
+                                            <constraint firstItem="nNS-4e-dLr" firstAttribute="leading" secondItem="JMA-47-OSA" secondAttribute="leading" constant="24" id="ehI-pH-FWO"/>
+                                            <constraint firstItem="CKg-dZ-JIM" firstAttribute="top" secondItem="nNS-4e-dLr" secondAttribute="bottom" constant="10" id="wIX-wv-REY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JMA-47-OSA" secondAttribute="bottom" id="J7R-JK-bCH"/>
+                                    <constraint firstItem="JMA-47-OSA" firstAttribute="top" secondItem="H0B-0c-JMg" secondAttribute="top" id="TIL-Ad-Xh7"/>
+                                    <constraint firstItem="JMA-47-OSA" firstAttribute="leading" secondItem="H0B-0c-JMg" secondAttribute="leading" id="YbC-QD-qM9"/>
+                                    <constraint firstAttribute="trailing" secondItem="JMA-47-OSA" secondAttribute="trailing" id="gPa-7U-nr9"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JMA-47-OSA" firstAttribute="width" secondItem="ka7-Fb-6tF" secondAttribute="width" id="7jV-rJ-e1q"/>
+                            <constraint firstItem="H0B-0c-JMg" firstAttribute="top" secondItem="uuo-G9-Evq" secondAttribute="top" id="T8t-Y1-na7"/>
+                            <constraint firstItem="uuo-G9-Evq" firstAttribute="trailing" secondItem="H0B-0c-JMg" secondAttribute="trailing" id="X9A-lc-oPt"/>
+                            <constraint firstItem="uuo-G9-Evq" firstAttribute="bottom" secondItem="H0B-0c-JMg" secondAttribute="bottom" id="Y01-fU-4UF"/>
+                            <constraint firstItem="H0B-0c-JMg" firstAttribute="leading" secondItem="uuo-G9-Evq" secondAttribute="leading" id="ffm-yd-Y1c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uuo-G9-Evq"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="nNS-4e-dLr" id="2A5-qj-WWO"/>
+                        <outlet property="passwordTextField" destination="CKg-dZ-JIM" id="JWT-eI-nKg"/>
+                        <outlet property="scrollView" destination="H0B-0c-JMg" id="Iqo-uQ-wlQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjV-ET-gOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="567" y="130"/>
+        </scene>
+    </scenes>
+</document>
