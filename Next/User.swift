@@ -12,13 +12,13 @@ import Firebase
 struct User {
     let uid: String
     let name: String?
-    let email: String?
+    let email: String
 }
 
 extension User {
     init(user: Firebase.User) {
         uid = user.uid
         name = user.displayName
-        email = user.email
+        email = user.email ?? ""
     }
 }

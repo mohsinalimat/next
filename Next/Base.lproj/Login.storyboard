@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-BoldItalic</string>
             <string>HelveticaNeue-Medium</string>
@@ -74,21 +75,41 @@
                                             <constraint firstItem="9wO-Lg-WVd" firstAttribute="centerX" secondItem="CKg-dZ-JIM" secondAttribute="centerX" id="B48-N2-Lyx"/>
                                             <constraint firstItem="GNv-2H-Oww" firstAttribute="centerX" secondItem="JMA-47-OSA" secondAttribute="centerX" id="G91-Zq-VTl"/>
                                             <constraint firstItem="nNS-4e-dLr" firstAttribute="top" secondItem="GNv-2H-Oww" secondAttribute="bottom" constant="64" id="Pus-DU-PMm"/>
-                                            <constraint firstAttribute="bottom" secondItem="9wO-Lg-WVd" secondAttribute="bottom" constant="64" id="WZd-4G-xJL"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="height" secondItem="nNS-4e-dLr" secondAttribute="height" id="ZKe-r2-vCw"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="leading" secondItem="nNS-4e-dLr" secondAttribute="leading" id="bYB-be-qDr"/>
                                             <constraint firstAttribute="trailing" secondItem="nNS-4e-dLr" secondAttribute="trailing" constant="24" id="byX-qs-vqm"/>
                                             <constraint firstItem="GNv-2H-Oww" firstAttribute="top" secondItem="JMA-47-OSA" secondAttribute="top" constant="64" id="d9j-fT-hyF"/>
                                             <constraint firstItem="nNS-4e-dLr" firstAttribute="leading" secondItem="JMA-47-OSA" secondAttribute="leading" constant="24" id="ehI-pH-FWO"/>
+                                            <constraint firstAttribute="bottom" secondItem="9wO-Lg-WVd" secondAttribute="bottom" constant="64" id="rJc-E2-i1s"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="top" secondItem="nNS-4e-dLr" secondAttribute="bottom" constant="10" id="wIX-wv-REY"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9v-b4-5gX">
+                                        <rect key="frame" x="132" y="601" width="111" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="tintColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Create account">
+                                            <color key="titleColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createAccountTapped:" destination="f3w-YD-VG6" eventType="touchUpInside" id="mrY-pE-bYW"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEp-3m-cAS">
+                                        <rect key="frame" x="107.5" y="584" width="160" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="CEp-3m-cAS" firstAttribute="centerX" secondItem="H0B-0c-JMg" secondAttribute="centerX" id="Efs-F5-J9Z"/>
                                     <constraint firstAttribute="bottom" secondItem="JMA-47-OSA" secondAttribute="bottom" id="J7R-JK-bCH"/>
                                     <constraint firstItem="JMA-47-OSA" firstAttribute="top" secondItem="H0B-0c-JMg" secondAttribute="top" id="TIL-Ad-Xh7"/>
                                     <constraint firstItem="JMA-47-OSA" firstAttribute="leading" secondItem="H0B-0c-JMg" secondAttribute="leading" id="YbC-QD-qM9"/>
                                     <constraint firstAttribute="trailing" secondItem="JMA-47-OSA" secondAttribute="trailing" id="gPa-7U-nr9"/>
+                                    <constraint firstItem="p9v-b4-5gX" firstAttribute="centerX" secondItem="CEp-3m-cAS" secondAttribute="centerX" id="geg-GM-Sl8"/>
+                                    <constraint firstItem="p9v-b4-5gX" firstAttribute="top" secondItem="CEp-3m-cAS" secondAttribute="bottom" id="pdl-yi-Icr"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -99,10 +120,13 @@
                             <constraint firstItem="uuo-G9-Evq" firstAttribute="trailing" secondItem="H0B-0c-JMg" secondAttribute="trailing" id="X9A-lc-oPt"/>
                             <constraint firstItem="uuo-G9-Evq" firstAttribute="bottom" secondItem="H0B-0c-JMg" secondAttribute="bottom" id="Y01-fU-4UF"/>
                             <constraint firstItem="H0B-0c-JMg" firstAttribute="leading" secondItem="uuo-G9-Evq" secondAttribute="leading" id="ffm-yd-Y1c"/>
+                            <constraint firstItem="uuo-G9-Evq" firstAttribute="bottom" secondItem="p9v-b4-5gX" secondAttribute="bottom" constant="16" id="sdg-RA-sGM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uuo-G9-Evq"/>
                     </view>
                     <connections>
+                        <outlet property="createAccountButton" destination="p9v-b4-5gX" id="AhY-tV-rUE"/>
+                        <outlet property="createAccountButtonBottomMarginConstraint" destination="sdg-RA-sGM" id="QDA-Vg-Xf3"/>
                         <outlet property="emailTextField" destination="nNS-4e-dLr" id="2A5-qj-WWO"/>
                         <outlet property="passwordTextField" destination="CKg-dZ-JIM" id="JWT-eI-nKg"/>
                         <outlet property="scrollView" destination="H0B-0c-JMg" id="Iqo-uQ-wlQ"/>
@@ -110,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjV-ET-gOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="567" y="130"/>
+            <point key="canvasLocation" x="565.60000000000002" y="129.98500749625188"/>
         </scene>
     </scenes>
 </document>

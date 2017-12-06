@@ -10,6 +10,11 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
+    private enum Constants {
+        static let defaultBottomSpacing: CGFloat = 16
+        static let scrollViewBottomInsetGap: CGFloat = 32
+    }
+
     private enum TextFieldTag: Int {
         case email, password
     }
@@ -17,6 +22,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet private weak var createAccountButtonBottomMarginConstraint: NSLayoutConstraint!
 
     typealias Factory = ViewControllerFactory & AuthServiceFactory
     private var factory: Factory!
@@ -61,6 +68,10 @@ final class LoginViewController: UIViewController {
         makeLogin()
     }
 
+    @IBAction func createAccountTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(factory.makeCreateAccountViewController(), animated: true)
+    }
+
     // MARK: - Keyboard Notifications
 
     private func addKeyboardNotifications() {
@@ -69,13 +80,27 @@ final class LoginViewController: UIViewController {
     }
 
     @objc private func keyboardWillShow(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollView.contentInset.bottom = keyboardSize.height
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let keyboardAnimationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
+            scrollView.contentInset.bottom = keyboardSize.height + Constants.scrollViewBottomInsetGap
+            view.layoutIfNeeded()
+            UIView.animate(withDuration: keyboardAnimationDuration, animations: {
+                self.createAccountButtonBottomMarginConstraint.constant = keyboardSize.height + Constants.defaultBottomSpacing
+                self.scrollView.scrollToBottom(animated: false)
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
     @objc private func keyboardWillHide(_ notification: Notification) {
-        scrollView.contentInset = .zero
+        if let keyboardAnimationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue {
+            view.layoutIfNeeded()
+            UIView.animate(withDuration: keyboardAnimationDuration, animations: {
+                self.createAccountButtonBottomMarginConstraint.constant = Constants.defaultBottomSpacing
+                self.scrollView.contentInset = .zero
+                self.view.layoutIfNeeded()
+            })
+        }
     }
 }
 

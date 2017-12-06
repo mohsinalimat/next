@@ -21,6 +21,7 @@ enum AuthError: Error {
 
 protocol AuthService {
     func login(email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void)
+    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void)
 }
 
 struct FirebaseAuthService: AuthService {
@@ -28,6 +29,20 @@ struct FirebaseAuthService: AuthService {
 
     func login(email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error as NSError?,
+                let errorCode = AuthErrorCode(rawValue: error.code) {
+                let error = self.authError(from: errorCode)
+                completion(.failure(error))
+            } else if let user = user {
+                completion(.success(User(user: user)))
+            } else {
+                completion(.failure(AuthError.unknown))
+            }
+        }
+    }
+
+    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void) {
+        auth.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error as NSError?,
                 let errorCode = AuthErrorCode(rawValue: error.code) {
                 let error = self.authError(from: errorCode)

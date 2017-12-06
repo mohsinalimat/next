@@ -20,6 +20,10 @@
 		1819E8071FD5B22A00C97929 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E8061FD5B22A00C97929 /* RootNavigationController.swift */; };
 		1819E8091FD5B30400C97929 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E8081FD5B30400C97929 /* AuthService.swift */; };
 		1819E80B1FD5B55800C97929 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E80A1FD5B55800C97929 /* User.swift */; };
+		189D0C0F1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0C0E1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift */; };
+		189D0C111FD5D91A00F8E210 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0C101FD5D91A00F8E210 /* CreateAccountViewController.swift */; };
+		189D0C131FD5D93800F8E210 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */; };
+		189D0C151FD5DCA800F8E210 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0C141FD5DCA800F8E210 /* UIViewController+showAlert.swift */; };
 		C1DA6E5EF94AC0C145B450FC /* Pods_NextTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1718FF8D88C64760FFE92024 /* Pods_NextTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		1819E8061FD5B22A00C97929 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		1819E8081FD5B30400C97929 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		1819E80A1FD5B55800C97929 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		189D0C0E1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+scrollToBottom.swift"; sourceTree = "<group>"; };
+		189D0C101FD5D91A00F8E210 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
+		189D0C141FD5DCA800F8E210 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
 		35DD24719F8810A3631059F7 /* Pods-NextTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NextTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NextTests/Pods-NextTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6EB1881CC27B893EC330C2C2 /* Pods_Next.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Next.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC63BCA67AC79265610D905 /* Pods-Next.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Next.release.xcconfig"; path = "Pods/Target Support Files/Pods-Next/Pods-Next.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +121,10 @@
 				1819E8061FD5B22A00C97929 /* RootNavigationController.swift */,
 				1819E8081FD5B30400C97929 /* AuthService.swift */,
 				1819E80A1FD5B55800C97929 /* User.swift */,
+				189D0C0E1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift */,
+				189D0C101FD5D91A00F8E210 /* CreateAccountViewController.swift */,
+				189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */,
+				189D0C141FD5DCA800F8E210 /* UIViewController+showAlert.swift */,
 			);
 			path = Next;
 			sourceTree = "<group>";
@@ -237,6 +249,7 @@
 			files = (
 				1811CEE11FD5A5BB001FF879 /* LaunchScreen.storyboard in Resources */,
 				1819E8051FD5B1DF00C97929 /* Main.storyboard in Resources */,
+				189D0C131FD5D93800F8E210 /* CreateAccount.storyboard in Resources */,
 				1819E8011FD5A74C00C97929 /* GoogleService-Info.plist in Resources */,
 				1811CEDE1FD5A5BB001FF879 /* Assets.xcassets in Resources */,
 				1811CEDC1FD5A5BB001FF879 /* Login.storyboard in Resources */,
@@ -373,8 +386,11 @@
 				1819E8071FD5B22A00C97929 /* RootNavigationController.swift in Sources */,
 				1819E80B1FD5B55800C97929 /* User.swift in Sources */,
 				1819E8091FD5B30400C97929 /* AuthService.swift in Sources */,
+				189D0C111FD5D91A00F8E210 /* CreateAccountViewController.swift in Sources */,
 				1819E8031FD5B14C00C97929 /* DependecyContainer.swift in Sources */,
+				189D0C0F1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift in Sources */,
 				1811CED71FD5A5BB001FF879 /* AppDelegate.swift in Sources */,
+				189D0C151FD5DCA800F8E210 /* UIViewController+showAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
