@@ -10,6 +10,7 @@ import Foundation
 import Result
 import FirebaseAuth
 import Firebase
+import RxSwift
 
 enum AuthError: Error {
     case userNotFound
@@ -20,38 +21,54 @@ enum AuthError: Error {
 }
 
 protocol AuthService {
-    func login(email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void)
-    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void)
+    func currentLoggedUser() -> Observable<User?>
+    func login(email: String, password: String) -> Observable<User>
+    func createAccount(name: String, email: String, password: String) -> Observable<User>
 }
 
 struct FirebaseAuthService: AuthService {
-    private let auth = Auth.auth()
-
-    func login(email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void) {
-        auth.signIn(withEmail: email, password: password) { (user, error) in
-            if let error = error as NSError?,
-                let errorCode = AuthErrorCode(rawValue: error.code) {
-                let error = self.authError(from: errorCode)
-                completion(.failure(error))
-            } else if let user = user {
-                completion(.success(User(user: user)))
-            } else {
-                completion(.failure(AuthError.unknown))
+    func currentLoggedUser() -> Observable<User?> {
+        if let user = Auth.auth().currentUser {
+            return Observable.just(User(user: user))
+        }
+        return Observable.just(nil)
+    }
+    
+    func login(email: String, password: String) -> Observable<User> {
+        return Observable.create { observer in
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                if let error = error as NSError?,
+                    let errorCode = AuthErrorCode(rawValue: error.code) {
+                    let error = self.authError(from: errorCode)
+                    observer.onError(error)
+                } else if let user = user {
+                    observer.onNext(User(user: user))
+                } else {
+                    observer.onError(AuthError.unknown)
+                }
+                observer.onCompleted()
             }
+
+            return Disposables.create()
         }
     }
 
-    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AuthError>) -> Void) {
-        auth.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error as NSError?,
-                let errorCode = AuthErrorCode(rawValue: error.code) {
-                let error = self.authError(from: errorCode)
-                completion(.failure(error))
-            } else if let user = user {
-                completion(.success(User(user: user)))
-            } else {
-                completion(.failure(AuthError.unknown))
+    func createAccount(name: String, email: String, password: String) -> Observable<User> {
+        return Observable.create { observer in
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if let error = error as NSError?,
+                    let errorCode = AuthErrorCode(rawValue: error.code) {
+                    let error = self.authError(from: errorCode)
+                    observer.onError(error)
+                } else if let user = user {
+                    observer.onNext(User(user: user))
+                } else {
+                    observer.onError(AuthError.unknown)
+                }
+                observer.onCompleted()
             }
+
+            return Disposables.create()
         }
     }
 

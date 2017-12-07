@@ -6,6 +6,8 @@ target 'Next' do
   use_frameworks!
 
   # Pods for Next
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'IGListKit', '~> 3.0'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
@@ -15,6 +17,9 @@ target 'Next' do
   target 'NextTests' do
     inherit! :search_paths
     # Pods for testing
+    # pod 'Firebase'
+    pod 'Nimble', '~> 7.0.0'
+    pod 'RxTest'
   end
 
 end
