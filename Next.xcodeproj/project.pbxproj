@@ -33,6 +33,7 @@
 		1819E80B1FD5B55800C97929 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E80A1FD5B55800C97929 /* User.swift */; };
 		1842DD241FD77D8100216C00 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842DD231FD77D8100216C00 /* Validator.swift */; };
 		1865C1F51FE30CA700AE4AE0 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */; };
+		1865C1F81FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */; };
 		18698B511FE2B60700F3EAE1 /* UserServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */; };
 		187E59F41FD95628009FBF6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F31FD95628009FBF6D /* Task.swift */; };
 		187E59F61FD9571B009FBF6D /* ListTaskSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */; };
@@ -88,6 +89,7 @@
 		1819E80A1FD5B55800C97929 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1842DD231FD77D8100216C00 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
+		1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseDatabase+Rx.swift"; sourceTree = "<group>"; };
 		18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceMock.swift; sourceTree = "<group>"; };
 		187E59F31FD95628009FBF6D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskSectionController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		1811CED51FD5A5BB001FF879 /* Next */ = {
 			isa = PBXGroup;
 			children = (
+				1865C1F61FE31F6000AE4AE0 /* RxFirebase */,
 				1811CED61FD5A5BB001FF879 /* AppDelegate.swift */,
 				1842DD1B1FD7761400216C00 /* Scenes */,
 				1811CEDD1FD5A5BB001FF879 /* Assets.xcassets */,
@@ -237,6 +240,14 @@
 				189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */,
 			);
 			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		1865C1F61FE31F6000AE4AE0 /* RxFirebase */ = {
+			isa = PBXGroup;
+			children = (
+				1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */,
+			);
+			path = RxFirebase;
 			sourceTree = "<group>";
 		};
 		587D4FC07A56CA5F992BC57E /* Frameworks */ = {
@@ -501,6 +512,7 @@
 				180409121FD80FC000571E55 /* LoginViewModel.swift in Sources */,
 				1842DD241FD77D8100216C00 /* Validator.swift in Sources */,
 				187E59FA1FD95819009FBF6D /* ListTaskCell.swift in Sources */,
+				1865C1F81FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift in Sources */,
 				18038D9A1FD82A1A0037152E /* UIViewController+storyboardIdentifier.swift in Sources */,
 				180409181FD8117100571E55 /* ActivityIndicator.swift in Sources */,
 				187E59F81FD9579E009FBF6D /* Reusable.swift in Sources */,

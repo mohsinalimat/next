@@ -12,10 +12,12 @@ import RxCocoa
 
 protocol ListTaskViewModelInput {
     func viewDidAppear()
+    func pullToRefresh()
 }
 
 protocol ListTaskViewModelOutput {
     var tasks: Driver<[TaskViewModel]> { get }
+    var isLoading: Driver<Bool> { get }
 }
 
 protocol ListTaskViewModelType {
@@ -25,9 +27,17 @@ protocol ListTaskViewModelType {
 
 final class ListTaskViewModel: ListTaskViewModelType, ListTaskViewModelInput, ListTaskViewModelOutput {
     let tasks: SharedSequence<DriverSharingStrategy, [TaskViewModel]>
+    let isLoading: SharedSequence<DriverSharingStrategy, Bool>
 
     init(taskService: TaskService) {
-        tasks = viewDidAppearProperty.withLatestFrom(taskService.getTasks())
+        let activityTracker = ActivityTracker()
+        isLoading = activityTracker.asDriver()
+
+        tasks = Observable.merge(viewDidAppearProperty, pullToRefreshProperty)
+            .flatMap { _ in
+                return taskService.getTasks()
+                    .trackActivity(activityTracker)
+            }
             .map { tasks in tasks.flatMap(TaskViewModel.init) }
             .asDriverOnErrorJustComplete()
     }
@@ -35,6 +45,11 @@ final class ListTaskViewModel: ListTaskViewModelType, ListTaskViewModelInput, Li
     private let viewDidAppearProperty = PublishSubject<Void>()
     func viewDidAppear() {
         viewDidAppearProperty.onNext(())
+    }
+
+    private let pullToRefreshProperty = PublishSubject<Void>()
+    func pullToRefresh() {
+        pullToRefreshProperty.onNext(())
     }
 
     var input: ListTaskViewModelInput { return self }

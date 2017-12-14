@@ -18,6 +18,7 @@ struct FirebaseTaskService: TaskService {
     private enum Keys: String {
         case tasks
         case users
+        case taskUsers = "task-users"
     }
 
     private let currentUser: User
@@ -28,36 +29,52 @@ struct FirebaseTaskService: TaskService {
     }
 
     func getTasks() -> Observable<[Task]> {
-        return Observable.create { observer in
-            let handle = self.ref
-                .child(Keys.users.rawValue)
-                .child(self.currentUser.uid)
-                .child(Keys.tasks.rawValue)
-                .observe(.value, with: { (snapshot) in
-                if let value = snapshot.value as? [[String: Any]] {
-                    print(value)
+        return Database.database().reference()
+            .child(Keys.taskUsers.rawValue)
+            .child(self.currentUser.uid)
+            .rx.observe(.value)
+            .flatMap { snapshot -> Observable<[Task]> in
+                if let value = snapshot.value as? [String: Any] {
+                    let keys = [String](value.keys)
+                    let tasks = keys.flatMap(self.getTask)
+                    return Observable.combineLatest(tasks)
                 }
-            })
+                return Observable.empty()
+        }
+    }
 
-            return Disposables.create {
-                Database.database().reference().removeObserver(withHandle: handle)
-            }
+    private func getTask(uid: String) -> Observable<Task> {
+        return Database.database().reference()
+            .child(Keys.tasks.rawValue)
+            .child(uid)
+            .rx.observeSingleEvent(of: .value)
+            .flatMap { snapshot -> Observable<Task> in
+                if let value = snapshot.value as? [String: Any],
+                    let task = Task(from: value) {
+                    return Observable.just(task)
+                }
+                return Observable.empty()
         }
     }
 
     func save(_ task: Task) -> Observable<Void> {
-        return Observable.create { observer in
-            let ref = Database.database().reference().child(Keys.tasks.rawValue).childByAutoId()
-            ref.updateChildValues(task.asJSON(), withCompletionBlock: { (error, _) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(())
-                }
-                observer.onCompleted()
-            })
+        let saveTask = Database.database().reference()
+            .child(Keys.tasks.rawValue)
+            .child(task.uid)
+            .rx.updateChildValues(task.asJSON())
+            .mapToVoid()
 
-            return Disposables.create()
-        }
+        let addTask = addTaskToUser(withUid: task.uid)
+
+        return Observable.merge(saveTask, addTask)
+    }
+
+    private func addTaskToUser(withUid uid: String) -> Observable<Void> {
+        return Database.database().reference()
+            .child(Keys.taskUsers.rawValue)
+            .child(self.currentUser.uid)
+            .child(uid)
+            .rx.setValue(true)
+            .mapToVoid()
     }
 }

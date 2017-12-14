@@ -19,7 +19,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         UIWindow.appearance().tintColor = UIColor(red: 45/255, green: 194/255, blue: 160/255, alpha: 1)
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().barTintColor = .white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().prefersLargeTitles = true
 

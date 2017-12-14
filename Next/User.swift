@@ -33,11 +33,11 @@ extension User {
 
 extension User {
     func asJSON() -> [AnyHashable: Any] {
-        return [
-            "uid": uid,
-            "name": name,
-            "email": email
-        ]
+        var json: [AnyHashable: Any] = [:]
+        json[CodingKeys.uid.stringValue] = uid
+        json[CodingKeys.email.stringValue] = email
+        json[CodingKeys.name.stringValue] = name
+        return json
     }
 }
 

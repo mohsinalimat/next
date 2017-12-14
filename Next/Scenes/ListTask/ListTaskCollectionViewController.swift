@@ -11,24 +11,21 @@ import RxSwift
 import IGListKit
 
 final class TaskViewModel: ListDiffable {
-    let id: String
+    let uid: String
     let detail: String
 
     init?(task: Task) {
-        guard let id = task.id,
-            let detail = task.detail else { return nil }
-
-        self.id = id
-        self.detail = detail
+        uid = task.uid
+        detail = task.detail
     }
 
     func diffIdentifier() -> NSObjectProtocol {
-        return id as NSObjectProtocol
+        return uid as NSObjectProtocol
     }
 
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         if let object = object as? TaskViewModel {
-            return object.id == id &&
+            return object.uid == uid &&
                 object.detail == detail
         }
         return false
@@ -37,6 +34,11 @@ final class TaskViewModel: ListDiffable {
 
 final class ListTaskCollectionViewController: UICollectionViewController {
 
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
     private lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 2)
     }()
@@ -64,6 +66,7 @@ final class ListTaskCollectionViewController: UICollectionViewController {
         navigationItem.title = "My Tasks"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(signOutTapped(_:)))
+        collectionView?.refreshControl = refreshControl
         adapter.collectionView = collectionView
         adapter.dataSource = self
         bindViewModel()
@@ -81,16 +84,24 @@ final class ListTaskCollectionViewController: UICollectionViewController {
                 self?.adapter.performUpdates(animated: true)
             })
             .disposed(by: disposeBag)
+
+        viewModel.output.isLoading
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
     }
 
     @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
-        print("Add")
+
     }
 
     @objc private func signOutTapped(_ sender: UIBarButtonItem) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.signOut()
         }
+    }
+
+    @objc private func pullToRefresh(_ sender: UIRefreshControl) {
+        viewModel.input.pullToRefresh()
     }
 }
 

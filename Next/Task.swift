@@ -7,14 +7,31 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
-struct Task {
-    let id: String?
-    let detail: String?
+struct Task: Codable {
+    let uid: String
+    let detail: String
+
+    init(detail: String) {
+        uid = Database.database().reference().childByAutoId().key
+        self.detail = detail
+    }
+
+    init?(from json: [String: Any]) {
+        guard let uid = json["uid"] as? String,
+            let detail = json["detail"] as? String else { return nil }
+
+        self.uid = uid
+        self.detail = detail
+    }
 }
 
 extension Task {
     func asJSON() -> [AnyHashable: Any] {
-        return [:]
+        return [
+            CodingKeys.uid.stringValue: uid,
+            CodingKeys.detail.stringValue: detail
+        ]
     }
 }
