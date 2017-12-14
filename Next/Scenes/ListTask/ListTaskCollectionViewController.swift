@@ -116,7 +116,7 @@ extension ListTaskCollectionViewController: ListAdapterDataSource {
     }
 
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
+        return EmptyListView.instantiate(with: "Good, you have no tasks, go take a beer. :D")
     }
 }
 

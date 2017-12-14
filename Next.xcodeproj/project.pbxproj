@@ -34,6 +34,7 @@
 		1842DD241FD77D8100216C00 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842DD231FD77D8100216C00 /* Validator.swift */; };
 		1865C1F51FE30CA700AE4AE0 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */; };
 		1865C1F81FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */; };
+		1865C1FA1FE33BC500AE4AE0 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F91FE33BC500AE4AE0 /* EmptyListView.swift */; };
 		18698B511FE2B60700F3EAE1 /* UserServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */; };
 		187E59F41FD95628009FBF6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F31FD95628009FBF6D /* Task.swift */; };
 		187E59F61FD9571B009FBF6D /* ListTaskSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */; };
@@ -90,6 +91,7 @@
 		1842DD231FD77D8100216C00 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
 		1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseDatabase+Rx.swift"; sourceTree = "<group>"; };
+		1865C1F91FE33BC500AE4AE0 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceMock.swift; sourceTree = "<group>"; };
 		187E59F31FD95628009FBF6D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskSectionController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				187E59FB1FD959C4009FBF6D /* TaskService.swift */,
 				187E59FD1FD95D39009FBF6D /* UserService.swift */,
 				187E59FF1FD95EFE009FBF6D /* Environment.swift */,
+				1865C1F91FE33BC500AE4AE0 /* EmptyListView.swift */,
 			);
 			path = Next;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				189D0C151FD5DCA800F8E210 /* UIViewController+showAlert.swift in Sources */,
 				187E59FC1FD959C4009FBF6D /* TaskService.swift in Sources */,
 				180409141FD8114200571E55 /* Rx+Util.swift in Sources */,
+				1865C1FA1FE33BC500AE4AE0 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

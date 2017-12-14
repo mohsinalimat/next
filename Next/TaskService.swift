@@ -39,7 +39,7 @@ struct FirebaseTaskService: TaskService {
                     let tasks = keys.flatMap(self.getTask)
                     return Observable.combineLatest(tasks)
                 }
-                return Observable.empty()
+                return Observable.just([])
         }
     }
 
