@@ -27,7 +27,11 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var createAccountButton: UIButton!
     @IBOutlet private weak var createAccountButtonBottomMarginConstraint: NSLayoutConstraint!
 
-    private lazy var viewModel: LoginViewModelType = LoginViewModel(authService: FirebaseAuthService())
+    private lazy var viewModel: LoginViewModelType = LoginViewModel(
+        authService: FirebaseAuthService(),
+        userService: FirebaseUserService(),
+        environment: UserDefaultsEnvironment()
+    )
     private let disposeBag = DisposeBag()
     
     static func instantiate() -> LoginViewController {
@@ -58,8 +62,8 @@ final class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.output.loggedIn
-            .drive(onNext: { [weak self] in
-                self?.startListTaskController()
+            .drive(onNext: { [weak self] user in
+//                self?.startListTaskController()
             })
             .disposed(by: disposeBag)
 
@@ -72,8 +76,8 @@ final class LoginViewController: UIViewController {
         print(error.localizedDescription)
     }
     
-    private func startListTaskController() {
-        let navigationController = UINavigationController(rootViewController: ListTaskCollectionViewController.instantiate())
+    private func startListTaskController(withUser user: User) {
+        let navigationController = UINavigationController(rootViewController: ListTaskCollectionViewController.instantiate(withUser: user))
         present(navigationController, animated: true)
     }
 

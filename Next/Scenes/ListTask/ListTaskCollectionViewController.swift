@@ -14,9 +14,12 @@ final class TaskViewModel: ListDiffable {
     let id: String
     let detail: String
 
-    init(task: Task) {
-        id = task.id
-        detail = task.detail
+    init?(task: Task) {
+        guard let id = task.id,
+            let detail = task.detail else { return nil }
+
+        self.id = id
+        self.detail = detail
     }
 
     func diffIdentifier() -> NSObjectProtocol {
@@ -38,13 +41,22 @@ final class ListTaskCollectionViewController: UICollectionViewController {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 2)
     }()
 
-    private let viewModel: ListTaskViewModelType = ListTaskViewModel()
+    private lazy var viewModel: ListTaskViewModelType! = ListTaskViewModel(
+        taskService: FirebaseTaskService(currentUser: self.user)
+    )
     private let disposeBag = DisposeBag()
 
     private var objects: [TaskViewModel] = []
 
-    static func instantiate() -> ListTaskCollectionViewController {
-        return Storyboard.ListTask.instantiate(ListTaskCollectionViewController.self)
+    static func instantiate(withUser user: User) -> ListTaskCollectionViewController {
+        let controller = Storyboard.ListTask.instantiate(ListTaskCollectionViewController.self)
+        controller.configure(withUser: user)
+        return controller
+    }
+
+    private var user: User!
+    private func configure(withUser user: User) {
+        self.user = user
     }
     
     override func viewDidLoad() {

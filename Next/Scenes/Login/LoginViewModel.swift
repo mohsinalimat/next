@@ -18,7 +18,7 @@ protocol LoginViewModelInput {
 
 protocol LoginViewModelOutput {
     var error: Driver<Error> { get }
-    var loggedIn: Driver<Void> { get }
+    var loggedIn: Driver<User> { get }
     var isButtonEnabled: Driver<Bool> { get }
 }
 
@@ -30,10 +30,10 @@ protocol LoginViewModelType {
 final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewModelOutput {
     
     let error: SharedSequence<DriverSharingStrategy, Error>
-    let loggedIn: SharedSequence<DriverSharingStrategy, Void>
+    let loggedIn: SharedSequence<DriverSharingStrategy, User>
     let isButtonEnabled: SharedSequence<DriverSharingStrategy, Bool>
     
-    init(authService: AuthService) {
+    init(authService: AuthService, userService: UserService, environment: Environment) {
         let emailAndPassword = Driver.combineLatest(
             emailProperty.asDriverOnErrorJustComplete().skipNil(),
             passwordProperty.asDriverOnErrorJustComplete().skipNil()
@@ -51,12 +51,12 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
         loggedIn = loginTappedProperty.withLatestFrom(emailAndPassword)
             .flatMapLatest { user in
                 return authService.login(email: user.email, password: user.password)
+                    .flatMap(userService.save)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
-                    .mapToVoid()
+                    .do(onNext: environment.saveCurrentUser)
             }
             .asDriverOnErrorJustComplete()
-            .mapToVoid()
     }
     
     private let loginTappedProperty = PublishSubject<Void>()

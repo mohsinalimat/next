@@ -26,8 +26,10 @@ protocol ListTaskViewModelType {
 final class ListTaskViewModel: ListTaskViewModelType, ListTaskViewModelInput, ListTaskViewModelOutput {
     let tasks: SharedSequence<DriverSharingStrategy, [TaskViewModel]>
 
-    init() {
-        tasks = Driver.empty()
+    init(taskService: TaskService) {
+        tasks = viewDidAppearProperty.withLatestFrom(taskService.getTasks())
+            .map { tasks in tasks.flatMap(TaskViewModel.init) }
+            .asDriverOnErrorJustComplete()
     }
 
     private let viewDidAppearProperty = PublishSubject<Void>()

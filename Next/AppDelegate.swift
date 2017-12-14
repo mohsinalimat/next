@@ -13,6 +13,7 @@ import Firebase
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let environment = UserDefaultsEnvironment()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -25,10 +26,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootNavigationController = RootNavigationController.instantiate()
 
-        if Auth.auth().currentUser == nil {
-            rootNavigationController.setViewControllers([LoginViewController.instantiate()], animated: false)
+        if let user = environment.getCurrentUser() {
+            rootNavigationController.setViewControllers([ListTaskCollectionViewController.instantiate(withUser: user)], animated: false)
         } else {
-            rootNavigationController.setViewControllers([ListTaskCollectionViewController.instantiate()], animated: false)
+            rootNavigationController.setViewControllers([LoginViewController.instantiate()], animated: false)
         }
 
         window?.rootViewController = rootNavigationController

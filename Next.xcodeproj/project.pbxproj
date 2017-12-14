@@ -32,10 +32,15 @@
 		1819E8091FD5B30400C97929 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E8081FD5B30400C97929 /* AuthService.swift */; };
 		1819E80B1FD5B55800C97929 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E80A1FD5B55800C97929 /* User.swift */; };
 		1842DD241FD77D8100216C00 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842DD231FD77D8100216C00 /* Validator.swift */; };
+		1865C1F51FE30CA700AE4AE0 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */; };
+		18698B511FE2B60700F3EAE1 /* UserServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */; };
 		187E59F41FD95628009FBF6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F31FD95628009FBF6D /* Task.swift */; };
 		187E59F61FD9571B009FBF6D /* ListTaskSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */; };
 		187E59F81FD9579E009FBF6D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F71FD9579E009FBF6D /* Reusable.swift */; };
 		187E59FA1FD95819009FBF6D /* ListTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59F91FD95819009FBF6D /* ListTaskCell.swift */; };
+		187E59FC1FD959C4009FBF6D /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59FB1FD959C4009FBF6D /* TaskService.swift */; };
+		187E59FE1FD95D39009FBF6D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59FD1FD95D39009FBF6D /* UserService.swift */; };
+		187E5A001FD95EFE009FBF6D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E59FF1FD95EFE009FBF6D /* Environment.swift */; };
 		189D0C0F1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0C0E1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift */; };
 		189D0C111FD5D91A00F8E210 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0C101FD5D91A00F8E210 /* CreateAccountViewController.swift */; };
 		189D0C131FD5D93800F8E210 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */; };
@@ -82,10 +87,15 @@
 		1819E8081FD5B30400C97929 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		1819E80A1FD5B55800C97929 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1842DD231FD77D8100216C00 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
+		18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceMock.swift; sourceTree = "<group>"; };
 		187E59F31FD95628009FBF6D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskSectionController.swift; sourceTree = "<group>"; };
 		187E59F71FD9579E009FBF6D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		187E59F91FD95819009FBF6D /* ListTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskCell.swift; sourceTree = "<group>"; };
+		187E59FB1FD959C4009FBF6D /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		187E59FD1FD95D39009FBF6D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		187E59FF1FD95EFE009FBF6D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		189D0C0E1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+scrollToBottom.swift"; sourceTree = "<group>"; };
 		189D0C101FD5D91A00F8E210 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		189D0C121FD5D93800F8E210 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
@@ -181,6 +191,9 @@
 				18038D991FD82A1A0037152E /* UIViewController+storyboardIdentifier.swift */,
 				187E59F31FD95628009FBF6D /* Task.swift */,
 				187E59F71FD9579E009FBF6D /* Reusable.swift */,
+				187E59FB1FD959C4009FBF6D /* TaskService.swift */,
+				187E59FD1FD95D39009FBF6D /* UserService.swift */,
+				187E59FF1FD95EFE009FBF6D /* Environment.swift */,
 			);
 			path = Next;
 			sourceTree = "<group>";
@@ -191,6 +204,8 @@
 				1811CEED1FD5A5BC001FF879 /* Info.plist */,
 				180409191FD8157800571E55 /* LoginViewModelTest.swift */,
 				1804091B1FD8176D00571E55 /* AuthServiceMock.swift */,
+				18698B501FE2B60700F3EAE1 /* UserServiceMock.swift */,
+				1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */,
 			);
 			path = NextTests;
 			sourceTree = "<group>";
@@ -500,8 +515,11 @@
 				18038D9D1FD82D450037152E /* RootNavigationViewModel.swift in Sources */,
 				18038D981FD8292B0037152E /* Storyboard.swift in Sources */,
 				1811CED71FD5A5BB001FF879 /* AppDelegate.swift in Sources */,
+				187E5A001FD95EFE009FBF6D /* Environment.swift in Sources */,
 				18038D961FD826820037152E /* ListTaskViewModel.swift in Sources */,
+				187E59FE1FD95D39009FBF6D /* UserService.swift in Sources */,
 				189D0C151FD5DCA800F8E210 /* UIViewController+showAlert.swift in Sources */,
+				187E59FC1FD959C4009FBF6D /* TaskService.swift in Sources */,
 				180409141FD8114200571E55 /* Rx+Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +529,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1804091C1FD8176D00571E55 /* AuthServiceMock.swift in Sources */,
+				18698B511FE2B60700F3EAE1 /* UserServiceMock.swift in Sources */,
 				1804091A1FD8157800571E55 /* LoginViewModelTest.swift in Sources */,
+				1865C1F51FE30CA700AE4AE0 /* EnvironmentMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

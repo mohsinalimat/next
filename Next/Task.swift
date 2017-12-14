@@ -9,6 +9,12 @@
 import Foundation
 
 struct Task {
-    let id: String
-    let detail: String
+    let id: String?
+    let detail: String?
+}
+
+extension Task {
+    func asJSON() -> [AnyHashable: Any] {
+        return [:]
+    }
 }

@@ -39,7 +39,7 @@ final class RootNavigationController: UINavigationController {
     }
     
     private func startTaskListFlow() {
-        present(ListTaskCollectionViewController.instantiate(), animated: true, completion: nil)
+//        present(ListTaskCollectionViewController.instantiate(), animated: true, completion: nil)
     }
 
 }

@@ -19,20 +19,25 @@ final class LoginViewModelTest: XCTestCase {
     private var vm: LoginViewModelType!
     private var disposeBag: DisposeBag!
     private var isButtonEnabled: TestableObserver<Bool>!
-    private var loggedIn: TestableObserver<Void>!
-    
+    private var loggedIn: TestableObserver<User>!
+    private var environment: Environment!
+
     override func setUp() {
         super.setUp()
-        vm = LoginViewModel(authService: AuthServiceMock())
+        environment = EnvironmentMock()
+        vm = LoginViewModel(
+            authService: AuthServiceMock(),
+            userService: UserServiceMock(),
+            environment: environment)
         disposeBag = DisposeBag()
       
         let scheduler = TestScheduler(initialClock: 0)
         isButtonEnabled = scheduler.createObserver(Bool.self)
-        loggedIn = scheduler.createObserver(Void.self)
-        
+        loggedIn = scheduler.createObserver(User.self)
+
         vm.output.isButtonEnabled.drive(self.isButtonEnabled).disposed(by: disposeBag)
         vm.output.loggedIn.drive(self.loggedIn).disposed(by: disposeBag)
-        
+
         scheduler.start()
     }
     
@@ -98,9 +103,19 @@ final class LoginViewModelTest: XCTestCase {
         vm.input.loginTapped()
         
         let expected = [
-            next(0, ())
+            next(0, User(uid: "12345", name: nil, email: "guilherme@gmail.com"))
         ]
         
-        XCTAssertEqual(loggedIn.events.count, expected.count)
+        XCTAssertEqual(loggedIn.events, expected)
+    }
+
+    func test_shouldSaveCurrentUser_whenLogin() {
+        vm.input.emailChanged("guilherme@gmail.com")
+        vm.input.passwordChanged("validpassword")
+        vm.input.loginTapped()
+
+        let expected = User(uid: "12345", name: nil, email: "guilherme@gmail.com")
+
+        XCTAssertEqual(environment.getCurrentUser()!, expected)
     }
 }
