@@ -56,6 +56,9 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-iU-OIs">
+                                                <rect key="frame" x="177" y="342" width="20" height="20"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-Lg-WVd">
                                                 <rect key="frame" x="164.5" y="335.5" width="46" height="33"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -74,12 +77,14 @@
                                             <constraint firstItem="9wO-Lg-WVd" firstAttribute="top" secondItem="CKg-dZ-JIM" secondAttribute="bottom" constant="16" id="4zK-uO-evG"/>
                                             <constraint firstItem="9wO-Lg-WVd" firstAttribute="centerX" secondItem="CKg-dZ-JIM" secondAttribute="centerX" id="B48-N2-Lyx"/>
                                             <constraint firstItem="GNv-2H-Oww" firstAttribute="centerX" secondItem="JMA-47-OSA" secondAttribute="centerX" id="G91-Zq-VTl"/>
+                                            <constraint firstItem="mCF-iU-OIs" firstAttribute="centerX" secondItem="9wO-Lg-WVd" secondAttribute="centerX" id="Lrs-EO-mcS"/>
                                             <constraint firstItem="nNS-4e-dLr" firstAttribute="top" secondItem="GNv-2H-Oww" secondAttribute="bottom" constant="64" id="Pus-DU-PMm"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="height" secondItem="nNS-4e-dLr" secondAttribute="height" id="ZKe-r2-vCw"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="leading" secondItem="nNS-4e-dLr" secondAttribute="leading" id="bYB-be-qDr"/>
                                             <constraint firstAttribute="trailing" secondItem="nNS-4e-dLr" secondAttribute="trailing" constant="24" id="byX-qs-vqm"/>
                                             <constraint firstItem="GNv-2H-Oww" firstAttribute="top" secondItem="JMA-47-OSA" secondAttribute="top" constant="64" id="d9j-fT-hyF"/>
                                             <constraint firstItem="nNS-4e-dLr" firstAttribute="leading" secondItem="JMA-47-OSA" secondAttribute="leading" constant="24" id="ehI-pH-FWO"/>
+                                            <constraint firstItem="mCF-iU-OIs" firstAttribute="centerY" secondItem="9wO-Lg-WVd" secondAttribute="centerY" id="qEW-Kk-rIS"/>
                                             <constraint firstAttribute="bottom" secondItem="9wO-Lg-WVd" secondAttribute="bottom" constant="64" id="rJc-E2-i1s"/>
                                             <constraint firstItem="CKg-dZ-JIM" firstAttribute="top" secondItem="nNS-4e-dLr" secondAttribute="bottom" constant="10" id="wIX-wv-REY"/>
                                         </constraints>
@@ -125,6 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="uuo-G9-Evq"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="mCF-iU-OIs" id="707-L8-1t7"/>
                         <outlet property="createAccountButton" destination="p9v-b4-5gX" id="AhY-tV-rUE"/>
                         <outlet property="createAccountButtonBottomMarginConstraint" destination="sdg-RA-sGM" id="QDA-Vg-Xf3"/>
                         <outlet property="emailTextField" destination="nNS-4e-dLr" id="2A5-qj-WWO"/>

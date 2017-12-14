@@ -18,6 +18,12 @@ extension ObservableType where E == Bool {
 
 }
 
+extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy, E == Bool {
+    func not() -> Driver<Bool> {
+        return self.map(!)
+    }
+}
+
 extension SharedSequenceConvertibleType {
     func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
         return map { _ in }

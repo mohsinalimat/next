@@ -13,7 +13,7 @@ import Firebase
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let environment = UserDefaultsEnvironment()
+    let environment: Environment = UserDefaultsEnvironment()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -36,6 +36,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         return true
+    }
+
+    // just for development
+    func signOut() {
+        try? Auth.auth().signOut()
+        environment.removeCurrentUser()
     }
 
 }

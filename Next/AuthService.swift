@@ -24,6 +24,7 @@ protocol AuthService {
     func currentLoggedUser() -> Observable<User?>
     func login(email: String, password: String) -> Observable<User>
     func createAccount(name: String, email: String, password: String) -> Observable<User>
+    func signOut() -> Observable<Void>
 }
 
 struct FirebaseAuthService: AuthService {
@@ -68,6 +69,24 @@ struct FirebaseAuthService: AuthService {
                 observer.onCompleted()
             }
 
+            return Disposables.create()
+        }
+    }
+
+    func signOut() -> Observable<Void> {
+        return Observable.create { observer in
+            do {
+                try Auth.auth().signOut()
+                observer.onNext(())
+                observer.onCompleted()
+            } catch {
+                if let errorCode = AuthErrorCode(rawValue: (error as NSError).code) {
+                    let error = self.authError(from: errorCode) // TODO: Must research which errors can be thrown here.
+                    observer.onError(error)
+                } else {
+                    observer.onError(AuthError.unknown)
+                }
+            }
             return Disposables.create()
         }
     }

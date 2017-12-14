@@ -20,6 +20,7 @@ protocol LoginViewModelOutput {
     var error: Driver<Error> { get }
     var loggedIn: Driver<User> { get }
     var isButtonEnabled: Driver<Bool> { get }
+    var isLoading: Driver<Bool> { get }
 }
 
 protocol LoginViewModelType {
@@ -32,6 +33,7 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
     let error: SharedSequence<DriverSharingStrategy, Error>
     let loggedIn: SharedSequence<DriverSharingStrategy, User>
     let isButtonEnabled: SharedSequence<DriverSharingStrategy, Bool>
+    let isLoading: SharedSequence<DriverSharingStrategy, Bool>
     
     init(authService: AuthService, userService: UserService, environment: Environment) {
         let emailAndPassword = Driver.combineLatest(
@@ -41,6 +43,9 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
         
         let errorTracker = ErrorTracker()
         error = errorTracker.asDriver()
+
+        let activityTracker = ActivityTracker()
+        isLoading = activityTracker.asDriver()
         
         isButtonEnabled = Driver.merge(
             Driver.of(false),
@@ -52,6 +57,7 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
             .flatMapLatest { user in
                 return authService.login(email: user.email, password: user.password)
                     .flatMap(userService.save)
+                    .trackActivity(activityTracker)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
                     .do(onNext: environment.saveCurrentUser)

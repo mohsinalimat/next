@@ -62,6 +62,8 @@ final class ListTaskCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "My Tasks"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(signOutTapped(_:)))
         adapter.collectionView = collectionView
         adapter.dataSource = self
         bindViewModel()
@@ -81,6 +83,15 @@ final class ListTaskCollectionViewController: UICollectionViewController {
             .disposed(by: disposeBag)
     }
 
+    @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
+        print("Add")
+    }
+
+    @objc private func signOutTapped(_ sender: UIBarButtonItem) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.signOut()
+        }
+    }
 }
 
 // MARK: ListAdapterDataSource

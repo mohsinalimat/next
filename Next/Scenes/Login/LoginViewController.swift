@@ -24,6 +24,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var createAccountButton: UIButton!
     @IBOutlet private weak var createAccountButtonBottomMarginConstraint: NSLayoutConstraint!
 
@@ -32,6 +33,7 @@ final class LoginViewController: UIViewController {
         userService: FirebaseUserService(),
         environment: UserDefaultsEnvironment()
     )
+
     private let disposeBag = DisposeBag()
     
     static func instantiate() -> LoginViewController {
@@ -61,9 +63,17 @@ final class LoginViewController: UIViewController {
             .drive(loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+        viewModel.output.isLoading
+            .drive(activityIndicator.rx.isAnimating, loginButton.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isLoading.not()
+            .drive(view.rx.isUserInteractionEnabled)
+            .disposed(by: disposeBag)
+
         viewModel.output.loggedIn
             .drive(onNext: { [weak self] user in
-//                self?.startListTaskController()
+                self?.startListTaskController(withUser: user)
             })
             .disposed(by: disposeBag)
 
@@ -77,7 +87,8 @@ final class LoginViewController: UIViewController {
     }
     
     private func startListTaskController(withUser user: User) {
-        let navigationController = UINavigationController(rootViewController: ListTaskCollectionViewController.instantiate(withUser: user))
+        let navigationController = RootNavigationController.instantiate()
+        navigationController.setViewControllers([ListTaskCollectionViewController.instantiate(withUser: user)], animated: false)
         present(navigationController, animated: true)
     }
 
