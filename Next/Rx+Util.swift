@@ -68,3 +68,9 @@ extension SharedSequenceConvertibleType where E: OptionalType {
         }
     }
 }
+
+extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy {
+    func drive<O: ObserverType>(_ observers: O...) -> Disposable where O.E == E {
+        return Disposables.create(observers.map(drive))
+    }
+}
