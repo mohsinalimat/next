@@ -28,16 +28,14 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var createAccountButton: UIButton!
     @IBOutlet private weak var createAccountButtonBottomMarginConstraint: NSLayoutConstraint!
 
-    private lazy var viewModel: LoginViewModelType = LoginViewModel(
-        authService: FirebaseAuthService(),
-        userService: FirebaseUserService(),
-        environment: UserDefaultsEnvironment()
-    )
+    private var viewModel: LoginViewModelType!
 
     private let disposeBag = DisposeBag()
     
-    static func instantiate() -> LoginViewController {
-        return Storyboard.Login.instantiate(LoginViewController.self)
+    static func instantiate(with viewModel: LoginViewModelType) -> LoginViewController {
+        let controller = Storyboard.Login.instantiate(LoginViewController.self)
+        controller.viewModel = viewModel
+        return controller
     }
 
     deinit {
@@ -71,11 +69,11 @@ final class LoginViewController: UIViewController {
             .drive(view.rx.isUserInteractionEnabled)
             .disposed(by: disposeBag)
 
-        viewModel.output.loggedIn
-            .drive(onNext: { [weak self] user in
-                self?.startListTaskController(withUser: user)
-            })
-            .disposed(by: disposeBag)
+//        viewModel.output.loggedIn
+//            .drive(onNext: { [weak self] user in
+//                self?.startListTaskController(withUser: user)
+//            })
+//            .disposed(by: disposeBag)
 
         viewModel.output.error
             .drive(onNext: handleError)

@@ -91,7 +91,8 @@ final class ListTaskCollectionViewController: UICollectionViewController {
     }
 
     @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
-
+        let addTaskViewController = AddTaskViewController.instantiate()
+        navigationController?.pushViewController(addTaskViewController, animated: true)
     }
 
     @objc private func signOutTapped(_ sender: UIBarButtonItem) {
