@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: Next.xcworkspace
+xcode_scheme: NextTests
