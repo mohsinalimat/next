@@ -27,22 +27,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().prefersLargeTitles = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
-//        let rootNavigationController = RootNavigationController.instantiate()
 
         let appCoordinator = AppCoordinator(window: window!)
         appCoordinator.start()
             .subscribe()
             .disposed(by: disposeBag)
-
-//        if let user = environment.getCurrentUser() {
-//            dependencyContainer = DependencyContainer(user: user)
-//            rootNavigationController.setViewControllers([dependencyContainer.makeListTaskCollectionViewController()], animated: false)
-//        } else {
-//            rootNavigationController.setViewControllers([LoginViewController.instantiate()], animated: false)
-//        }
-//
-//        window?.rootViewController = rootNavigationController
-//        window?.makeKeyAndVisible()
 
         return true
     }
