@@ -35,7 +35,11 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
     let isButtonEnabled: SharedSequence<DriverSharingStrategy, Bool>
     let isLoading: SharedSequence<DriverSharingStrategy, Bool>
     
-    init(authService: AuthService, userService: UserService, environment: Environment) {
+    init(
+        authService: AuthService = FirebaseAuthService(),
+        userService: UserService = FirebaseUserService(),
+        environment: Environment = UserDefaultsEnvironment()
+        ) {
         let emailAndPassword = Driver.combineLatest(
             emailProperty.asDriverOnErrorJustComplete().skipNil(),
             passwordProperty.asDriverOnErrorJustComplete().skipNil()
@@ -52,7 +56,7 @@ final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewMo
             emailAndPassword.map(validateFields)
             )
             .asDriver()
-        
+
         loggedIn = loginTappedProperty.withLatestFrom(emailAndPassword)
             .flatMapLatest { user in
                 return authService.login(email: user.email, password: user.password)

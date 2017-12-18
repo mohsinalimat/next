@@ -21,6 +21,10 @@
 		180409181FD8117100571E55 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180409161FD8117100571E55 /* ActivityIndicator.swift */; };
 		1804091A1FD8157800571E55 /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180409191FD8157800571E55 /* LoginViewModelTest.swift */; };
 		1804091C1FD8176D00571E55 /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804091B1FD8176D00571E55 /* AuthServiceMock.swift */; };
+		1804275A1FE7CFDC002B69D9 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180427591FE7CFDC002B69D9 /* BaseCoordinator.swift */; };
+		1804275C1FE7D334002B69D9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804275B1FE7D334002B69D9 /* AppCoordinator.swift */; };
+		1804275E1FE7D39A002B69D9 /* ListTaskCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804275D1FE7D39A002B69D9 /* ListTaskCoordinator.swift */; };
+		180427601FE7D552002B69D9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804275F1FE7D552002B69D9 /* LoginCoordinator.swift */; };
 		1811CED71FD5A5BB001FF879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811CED61FD5A5BB001FF879 /* AppDelegate.swift */; };
 		1811CED91FD5A5BB001FF879 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811CED81FD5A5BB001FF879 /* LoginViewController.swift */; };
 		1811CEDC1FD5A5BB001FF879 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1811CEDA1FD5A5BB001FF879 /* Login.storyboard */; };
@@ -31,6 +35,11 @@
 		1819E8071FD5B22A00C97929 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E8061FD5B22A00C97929 /* RootNavigationController.swift */; };
 		1819E8091FD5B30400C97929 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E8081FD5B30400C97929 /* AuthService.swift */; };
 		1819E80B1FD5B55800C97929 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819E80A1FD5B55800C97929 /* User.swift */; };
+		181F7E351FE4B80B00BB962C /* JSONRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7E341FE4B80B00BB962C /* JSONRepresentable.swift */; };
+		181F7E371FE4BA4800BB962C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7E361FE4BA4800BB962C /* DependencyContainer.swift */; };
+		181F7E391FE4BC6B00BB962C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7E381FE4BC6B00BB962C /* AddTaskViewController.swift */; };
+		181F7E3C1FE4BC8000BB962C /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7E3B1FE4BC8000BB962C /* AddTaskViewModel.swift */; };
+		181F7E3E1FE4BC9900BB962C /* AddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181F7E3D1FE4BC9900BB962C /* AddTaskViewController.xib */; };
 		1842DD241FD77D8100216C00 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842DD231FD77D8100216C00 /* Validator.swift */; };
 		1865C1F51FE30CA700AE4AE0 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */; };
 		1865C1F81FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */; };
@@ -74,6 +83,10 @@
 		180409161FD8117100571E55 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		180409191FD8157800571E55 /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
 		1804091B1FD8176D00571E55 /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
+		180427591FE7CFDC002B69D9 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		1804275B1FE7D334002B69D9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1804275D1FE7D39A002B69D9 /* ListTaskCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskCoordinator.swift; sourceTree = "<group>"; };
+		1804275F1FE7D552002B69D9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		1811CED31FD5A5BB001FF879 /* Next.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Next.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1811CED61FD5A5BB001FF879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1811CED81FD5A5BB001FF879 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +101,11 @@
 		1819E8061FD5B22A00C97929 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		1819E8081FD5B30400C97929 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		1819E80A1FD5B55800C97929 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		181F7E341FE4B80B00BB962C /* JSONRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRepresentable.swift; sourceTree = "<group>"; };
+		181F7E361FE4BA4800BB962C /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		181F7E381FE4BC6B00BB962C /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		181F7E3B1FE4BC8000BB962C /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		181F7E3D1FE4BC9900BB962C /* AddTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskViewController.xib; sourceTree = "<group>"; };
 		1842DD231FD77D8100216C00 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1865C1F41FE30CA700AE4AE0 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
 		1865C1F71FE31F7400AE4AE0 /* FirebaseDatabase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseDatabase+Rx.swift"; sourceTree = "<group>"; };
@@ -139,6 +157,7 @@
 				18038D951FD826820037152E /* ListTaskViewModel.swift */,
 				187E59F51FD9571A009FBF6D /* ListTaskSectionController.swift */,
 				187E59F91FD95819009FBF6D /* ListTaskCell.swift */,
+				1804275D1FE7D39A002B69D9 /* ListTaskCoordinator.swift */,
 			);
 			path = ListTask;
 			sourceTree = "<group>";
@@ -200,6 +219,10 @@
 				187E59FD1FD95D39009FBF6D /* UserService.swift */,
 				187E59FF1FD95EFE009FBF6D /* Environment.swift */,
 				1865C1F91FE33BC500AE4AE0 /* EmptyListView.swift */,
+				181F7E341FE4B80B00BB962C /* JSONRepresentable.swift */,
+				181F7E361FE4BA4800BB962C /* DependencyContainer.swift */,
+				180427591FE7CFDC002B69D9 /* BaseCoordinator.swift */,
+				1804275B1FE7D334002B69D9 /* AppCoordinator.swift */,
 			);
 			path = Next;
 			sourceTree = "<group>";
@@ -216,12 +239,23 @@
 			path = NextTests;
 			sourceTree = "<group>";
 		};
+		181F7E3A1FE4BC6F00BB962C /* AddTask */ = {
+			isa = PBXGroup;
+			children = (
+				181F7E381FE4BC6B00BB962C /* AddTaskViewController.swift */,
+				181F7E3B1FE4BC8000BB962C /* AddTaskViewModel.swift */,
+				181F7E3D1FE4BC9900BB962C /* AddTaskViewController.xib */,
+			);
+			path = AddTask;
+			sourceTree = "<group>";
+		};
 		1842DD1A1FD7760700216C00 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				1811CEDA1FD5A5BB001FF879 /* Login.storyboard */,
 				1811CED81FD5A5BB001FF879 /* LoginViewController.swift */,
 				180409111FD80FC000571E55 /* LoginViewModel.swift */,
+				1804275F1FE7D552002B69D9 /* LoginCoordinator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -232,6 +266,7 @@
 				18038D841FD826140037152E /* ListTask */,
 				1842DD221FD77BDC00216C00 /* CreateAccount */,
 				1842DD1A1FD7760700216C00 /* Login */,
+				181F7E3A1FE4BC6F00BB962C /* AddTask */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -367,6 +402,7 @@
 				189D0C131FD5D93800F8E210 /* CreateAccount.storyboard in Resources */,
 				1819E8011FD5A74C00C97929 /* GoogleService-Info.plist in Resources */,
 				1811CEDE1FD5A5BB001FF879 /* Assets.xcassets in Resources */,
+				181F7E3E1FE4BC9900BB962C /* AddTaskViewController.xib in Resources */,
 				18038D861FD826340037152E /* ListTask.storyboard in Resources */,
 				1811CEDC1FD5A5BB001FF879 /* Login.storyboard in Resources */,
 			);
@@ -510,6 +546,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1804275C1FE7D334002B69D9 /* AppCoordinator.swift in Sources */,
+				181F7E371FE4BA4800BB962C /* DependencyContainer.swift in Sources */,
+				180427601FE7D552002B69D9 /* LoginCoordinator.swift in Sources */,
 				1811CED91FD5A5BB001FF879 /* LoginViewController.swift in Sources */,
 				1819E8071FD5B22A00C97929 /* RootNavigationController.swift in Sources */,
 				180409121FD80FC000571E55 /* LoginViewModel.swift in Sources */,
@@ -523,17 +562,22 @@
 				187E59F41FD95628009FBF6D /* Task.swift in Sources */,
 				180409171FD8117100571E55 /* ErrorTracker.swift in Sources */,
 				1819E8091FD5B30400C97929 /* AuthService.swift in Sources */,
+				181F7E3C1FE4BC8000BB962C /* AddTaskViewModel.swift in Sources */,
+				1804275A1FE7CFDC002B69D9 /* BaseCoordinator.swift in Sources */,
 				187E59F61FD9571B009FBF6D /* ListTaskSectionController.swift in Sources */,
 				189D0C111FD5D91A00F8E210 /* CreateAccountViewController.swift in Sources */,
 				18038D941FD8266C0037152E /* ListTaskCollectionViewController.swift in Sources */,
 				189D0C0F1FD5D8CA00F8E210 /* UIScrollView+scrollToBottom.swift in Sources */,
 				18038D9D1FD82D450037152E /* RootNavigationViewModel.swift in Sources */,
+				181F7E391FE4BC6B00BB962C /* AddTaskViewController.swift in Sources */,
 				18038D981FD8292B0037152E /* Storyboard.swift in Sources */,
 				1811CED71FD5A5BB001FF879 /* AppDelegate.swift in Sources */,
 				187E5A001FD95EFE009FBF6D /* Environment.swift in Sources */,
 				18038D961FD826820037152E /* ListTaskViewModel.swift in Sources */,
 				187E59FE1FD95D39009FBF6D /* UserService.swift in Sources */,
 				189D0C151FD5DCA800F8E210 /* UIViewController+showAlert.swift in Sources */,
+				1804275E1FE7D39A002B69D9 /* ListTaskCoordinator.swift in Sources */,
+				181F7E351FE4B80B00BB962C /* JSONRepresentable.swift in Sources */,
 				187E59FC1FD959C4009FBF6D /* TaskService.swift in Sources */,
 				180409141FD8114200571E55 /* Rx+Util.swift in Sources */,
 				1865C1FA1FE33BC500AE4AE0 /* EmptyListView.swift in Sources */,

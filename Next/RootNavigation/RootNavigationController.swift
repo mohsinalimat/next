@@ -35,7 +35,7 @@ final class RootNavigationController: UINavigationController {
     }
     
     private func startLoginFlow() {
-        present(LoginViewController.instantiate(), animated: true, completion: nil)
+//        present(LoginViewController.instantiate(), animated: true, completion: nil)
     }
     
     private func startTaskListFlow() {

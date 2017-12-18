@@ -11,6 +11,7 @@ import Firebase
 import RxSwift
 
 protocol TaskService {
+    func create(detail: String) -> Observable<Task>
     func getTasks() -> Observable<[Task]>
 }
 
@@ -57,7 +58,14 @@ struct FirebaseTaskService: TaskService {
         }
     }
 
-    func save(_ task: Task) -> Observable<Void> {
+    func create(detail: String) -> Observable<Task> {
+        let uid = Database.database().reference().child(Keys.tasks.rawValue).childByAutoId().key
+        let task = Task(uid: uid, detail: detail)
+        return save(task)
+            .map { _ in task }
+    }
+
+    private func save(_ task: Task) -> Observable<Void> {
         let saveTask = Database.database().reference()
             .child(Keys.tasks.rawValue)
             .child(task.uid)

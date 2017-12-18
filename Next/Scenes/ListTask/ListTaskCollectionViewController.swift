@@ -43,22 +43,15 @@ final class ListTaskCollectionViewController: UICollectionViewController {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 2)
     }()
 
-    private lazy var viewModel: ListTaskViewModelType! = ListTaskViewModel(
-        taskService: FirebaseTaskService(currentUser: self.user)
-    )
+    private var viewModel: ListTaskViewModelType! // = ListTaskViewModel(taskService: factory.makeTaskService())
     private let disposeBag = DisposeBag()
 
     private var objects: [TaskViewModel] = []
 
-    static func instantiate(withUser user: User) -> ListTaskCollectionViewController {
+    static func instantiate(with viewModel: ListTaskViewModelType) -> ListTaskCollectionViewController {
         let controller = Storyboard.ListTask.instantiate(ListTaskCollectionViewController.self)
-        controller.configure(withUser: user)
+        controller.viewModel = viewModel
         return controller
-    }
-
-    private var user: User!
-    private func configure(withUser user: User) {
-        self.user = user
     }
     
     override func viewDidLoad() {
@@ -91,7 +84,7 @@ final class ListTaskCollectionViewController: UICollectionViewController {
     }
 
     @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
-
+//        navigationController?.pushViewController(factory.makeAddTaskViewController(), animated: true)
     }
 
     @objc private func signOutTapped(_ sender: UIBarButtonItem) {

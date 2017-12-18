@@ -8,12 +8,15 @@
 
 import UIKit
 import Firebase
+import RxSwift
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let environment: Environment = UserDefaultsEnvironment()
+    var dependencyContainer: DependencyContainer!
+    let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -24,16 +27,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().prefersLargeTitles = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootNavigationController = RootNavigationController.instantiate()
+//        let rootNavigationController = RootNavigationController.instantiate()
 
-        if let user = environment.getCurrentUser() {
-            rootNavigationController.setViewControllers([ListTaskCollectionViewController.instantiate(withUser: user)], animated: false)
-        } else {
-            rootNavigationController.setViewControllers([LoginViewController.instantiate()], animated: false)
-        }
+        let appCoordinator = AppCoordinator(window: window!)
+        appCoordinator.start()
+            .subscribe()
+            .disposed(by: disposeBag)
 
-        window?.rootViewController = rootNavigationController
-        window?.makeKeyAndVisible()
+//        if let user = environment.getCurrentUser() {
+//            dependencyContainer = DependencyContainer(user: user)
+//            rootNavigationController.setViewControllers([dependencyContainer.makeListTaskCollectionViewController()], animated: false)
+//        } else {
+//            rootNavigationController.setViewControllers([LoginViewController.instantiate()], animated: false)
+//        }
+//
+//        window?.rootViewController = rootNavigationController
+//        window?.makeKeyAndVisible()
 
         return true
     }
